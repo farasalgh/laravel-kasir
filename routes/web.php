@@ -12,9 +12,9 @@ Route::get('/', function () {
 });
 
 // Auth routes (login / logout)
-Route::get('/login', [App\Http\Controllers\AuthController::class, 'loginForm'])->name('login');
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
-Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Crud user (admin only)
 Route::middleware(['auth', 'role:admin'])->group(function () {
